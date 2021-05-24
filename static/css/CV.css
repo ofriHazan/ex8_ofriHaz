@@ -1,0 +1,286 @@
+
+*{
+    box-sizing: border-box;
+}
+
+.row::after{
+    content:"";
+    clear: both;
+    display: block;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 20px;
+}
+h3{
+    font-size: 30px;
+}
+button {
+    color: black;
+    background-color: #E6E6FA;
+}
+.img {
+    border: 1px solid black;
+    border-radius: 40px;
+    padding: 1px;
+    height: 5px;
+    width: 5px;
+}
+.picture{
+    height: 5px;
+    width: 5px;
+    float: left;
+    padding: 6px;
+    border: 1px solid black;
+}
+body{
+    text-align: left;
+    font-family: Garamond, serif;
+    background-color: #F3CEE8;
+    color: black;
+
+}
+
+[class*="slideCV"] {
+    color: lightcyan;
+    animation-duration: 15s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+}
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+
+.col-header{
+    /*height: 10%;*/
+    width: 80%;
+    float: right;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.sidebar{
+    color: black;
+    grid-area: sidebar;
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    float: right;
+    background-color: #F8E1E7;
+    text-decoration-color: #E6F7F1;
+    overflow-x: hidden;
+    padding: 20px;
+    border: 2px solid black;
+}
+.a{
+    height: 5px;
+    width: 5px;
+    float: left;
+    padding: 6px;
+    border: 1px solid black;
+}
+
+.col-information{
+    width: 80%;
+    float: right;
+    padding: 20px;
+    border: 2px solid black;
+}
+
+.col-experience{
+    width: 40%;
+    float: right;
+    padding: 10px;
+    border: 2px solid black;
+}
+.col-education{
+    width: 40%;
+    float: right;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+
+
+.row{
+
+}
+div :hover{
+    background-color: plum;
+}
+.nalla{
+    height: 300px;
+    width: 300px;
+}
+@media only screen and (max-width: 1000px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 70%;
+    }
+
+    [class*="sidebar"] {
+        width: 30%;
+    }
+
+    body {
+        background-color: #CECCE4;
+        color:lightcyan;
+    }
+    .sidebar{
+        color: black;
+        background-color:#D8F9E7 ;
+    }
+    .img {
+        border: 1px solid black;
+        border-radius: 40px;
+        padding: 1px;height: 10px;
+        width: 10px;
+    }
+
+    .picture{
+        height: 5px;
+        width: 5px;
+        float: left;
+        padding: 6px;
+        border: 1px solid black;
+    }
+
+    [class*="slideCV"] {
+        color: lightseagreen;
+        animation-duration: 15s;
+        animation-name: slidein;
+        animation-iteration-count: infinite;
+    }
+    div :hover{
+        background-color: lightblue;
+    }
+}
+
+
+*{
+    box-sizing: border-box;
+}
+
+.row::after{
+    content:"";
+    clear: both;
+    display: block;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 20px;
+}
+
+body{
+    text-align: center;
+    font-family: Garamond, serif;
+    background-color: #F3CEE8;
+    color: azure;
+
+}
+
+p {
+    animation-duration: 15s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+}
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 100%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+
+.col-header{
+    /*height: 10%;*/
+    width: 90%;
+    float: right;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.sidebar{
+    color: black;
+    grid-area: sidebar;
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    float: right;
+    background-color: #F8E1E7;
+    text-decoration-color: #E6F7F1;
+    overflow-x: hidden;
+    padding: 20px;
+    border: 2px solid black;
+}
+
+.col-information{
+    width: 40%;
+    float: right;
+    padding: 20px;
+    border: 2px solid black;
+}
+
+.col-experience{
+    width: 40%;
+    float: right;
+    padding: 20px;
+    border: 2px solid black;
+}
+.col-education{
+    width: 90%;
+    float: right;
+    padding: 20px;
+    border: 2px solid black;
+}
+
+
+
+.row{
+
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 70%;
+    }
+
+    [class*="sidebar"] {
+        width: 10%;
+    }
+
+    body {
+        background-color: #CECCE4;
+        color:lightcyan;
+    }
+    .sidebar{
+        color: black;
+        background-color:#D8F9E7 ;
+        height: 100%;
+        width: 30%;
+    }
+}
+

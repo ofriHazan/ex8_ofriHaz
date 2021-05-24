@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/CV.css') }}">
+    <title>assignment9</title>
+
+</head>
+<body>
+{% block header %}
+    {% if session['isLogged'] %}
+        <h1>Hello {{ session['username'] }}!! Glad you came back! :)</h1>
+    {% else %}
+        <h1>Hello stranger</h1>
+    {% endif %}
+    <hr>
+{% endblock %}
+
+
+{% block search %}
+    <h3>To search, please enter the username</h3>
+    <form name="search" method=GET" action="assignment9">
+        <input name="username" type="text" id="username" placeholder="enter username...">
+        <input name="lastname" type="text" id="lastname" placeholder="enter lastname...">
+        <input name="email" type="text" id="email" placeholder="enter email...">
+        <input type="submit" value="search">
+    </form>
+    {% if inSearch==True %}
+        {% if isUser==True %}
+            <h4>The user you looked for is : <br>
+                {{ user['username'] }} {{ user['lastname'] }} , his email is : {{ user['email']}} </h4>
+        {% elif isUser==False %}
+            <h4>There is no such as user in the system</h4>
+        {% else %}
+            <h2>users list:</h2>
+            <ol>
+            {% for user in users %}
+                    <li>
+                        User: {{ user['username'] }} {{ user['lastname'] }},
+                            email: {{ user['email'] }}
+                    </li>
+                </ol>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+{% block registration %}
+    {%if session['isLogged'] == False%}
+        <hr>
+        <h3>register:</h3>
+        <form name="register" method="POST" action="assignment9">
+            <h2>To register please enter your personal details:</h2>
+            <input name="username" placeholder="enter username">
+            <input name="lastname" placeholder="enter lastname">
+            <input name="email" placeholder="enter email">
+            <input type="submit">
+        </form>
+    {% else %}
+        <h3>Hello {{ session['username'] }}!</h3>
+        <h5>To log out press the button:</h5>
+        <form name="logout" action="logout">
+            <input type="submit" value="Logout">
+        </form>
+    {% endif %}
+{% endblock %}
+
+</body>
+</html>

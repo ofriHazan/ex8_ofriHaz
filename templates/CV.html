@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ofri Hazan's-CV</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/CV.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{{ url_for('static', filename='../static/js/ex7.js') }}"></script>
+</head>
+
+<body>
+
+<div class="row">
+    <div class="col-header">
+        <h1 class="slideCV">ofri hazan's CV - Enjoy :)</h1>
+
+        <p>
+        <h3>Hello everybody! </h3>
+        My name is Ofri Hazan, I'm a 3rd year Industrial Engineering and Management student,<br>
+        Specializing in information systems, at Ben Gurion University.<br>
+        I'm a Fast learner with strong work ethic and motivation and a team player.<br>
+        looking for a part time position. <br>
+        </p>
+    </div>
+
+    <div class="col-education">
+        <p>
+        <h3>Education</h3>
+        <h4>2018 - Present: </h4>
+        B.Sc. in Industrial Engineering and Management at Ben Gurion University <br>
+        •	Completed courses in object-oriented programming, databases, operations research, product planning control. <br>
+        <h4>2009-2012: Kadoorie high school </h4>
+        •	Completed full matriculation exams with an average of 106.<br>
+        •	Majored in computer science (10 units), mathematics, English (7 units) , geography.
+        </p>
+    </div>
+
+    <div class="col-information">
+        <p>
+        <h3>About Myself</h3>
+        I born at Kfar Tabor village at north.<br>
+        currently live at Beer Sheva with my boyfriend and my dog.<br>
+        I like to travel, exercise, read books, watch TV, hang out with my friend and go to the beach.<br>
+        </p>
+    </div>
+
+    <div class="col-experience">
+        <p>
+        <h3>Military Service:</h3>
+        <h4>2013-2015:  Sargent at unit 9900 - Decipherer, Intelligence Corps</h4>
+        •	Founder and commander of Intelligence operating room. <br>
+        •	 Trained the next generation of the operating room by writing lesson plans, exercises and tests. <br>
+        •	Weekly, Daily presentations to high rank officers of the operating room.<br>
+        •	Provided rapid response to real-time events mission-critical systems of military operations.<br>
+        •	Full involvement in decision making and implementation, 24/7 . <br>
+        </p>
+    </div>
+
+    <div class="sidebar">
+
+        <h3>Contact Me</h3>
+        <picture>
+            <source srcset="../static/img/Myface.jpeg">
+            <img src="{{url_for( 'static',filename='../static/img/Myface.jpeg' )}}" alt="myPhoto">
+        </picture>
+        <br>
+        <h2> Find me on: <br> </h2>
+        <a target="_blank" href="https://www.instagram.com/ofrihaz/">
+            <img src="{{url_for( 'static',filename='../static/img/instagram.png')}}" alt="instagram"> </a>
+
+        <a target="_blank" href="https://www.facebook.com/ofrihaz/">
+            <img src="{{url_for( 'static',filename='../static/img/Facebook.png')}}" alt="facebook"> </a>
+        <a target="_blank" href="../static/resume.pdf">
+            <img src="{{url_for( 'static',filename='../static/img/resume.jpg')}}" alt="resume"> </a>
+        <br> <br>
+
+        <button class="button2" onclick="document.location='contactList.html'">Press to entry the contact list</button>
+
+    </div>
+
+</div>
+
+</body>

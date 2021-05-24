@@ -1,0 +1,11 @@
+
+<title>my preferences</title>
+
+{% extends 'assignment8.html' %}
+{% set page_name='my preferences' %}
+{% block favorite %}
+    <hr>
+    <h3>You are in {{ page_name }}</h3>
+    <h2>But I love the most - my puppy {{ dog }}</h2>
+    <img class="nalla" src="{{url_for( 'static',filename='../static/img/nalla.jpeg' )}}" alt="myDog">
+{% endblock %}

@@ -1,0 +1,21 @@
+*{
+    box-sizing: border-box;
+    color:pink;
+    border: white;
+    background-image: url('../img/ofriCover.jpeg');
+      background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.button{
+    border: 2px solid lightpink;
+    background-color: lightblue;
+    color: honeydew;
+}
+
+
+.button:hover{
+    background: lightpink;
+    color: honeydew;
+}
