@@ -1,0 +1,5 @@
+<header>
+    {% if session['isLogged']==True %}
+        <h3 style="color: palevioletred">{{ session['username'] | upper }} - you are logged in, glad you came back ♥</h3>
+    {% endif %}
+</header>

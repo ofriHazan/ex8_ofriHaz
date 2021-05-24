@@ -8,29 +8,32 @@
 </head>
 <body>
 {% block header %}
-{% set page_name='header' %}
-{% include('header.html') %}
-{% if writer %}
-    <h3 class="text">The writer of this page is : {{ writer }} </h3>
-{% else %}
-    <h3>Foo wrote this page</h3>
-{% endif %}
+    {#addition to ex9#}
+    {% include('header9.html') %}
+    {#-------------------------#}
+    {% set page_name='header' %}
+    {% include('header.html') %}
+    {% if writer %}
+        <h3 class="text">The writer of this page is : {{ writer }} </h3>
+    {% else %}
+        <h3>Foo wrote this page</h3>
+    {% endif %}
 {% endblock %}
 
 {% block favorite %}
-<h2>{{ writer }}'s top favorites songs are:</h2>
-<ul>
-    {% for song in songs %}
-    <li> {{ song }} </li>
-    {% endfor %}
-</ul>
+    <h2>{{ writer }}'s top favorites songs are:</h2>
+    <ul>
+        {% for song in songs %}
+            <li> {{ song }} </li>
+        {% endfor %}
+    </ul>
     <hr>
-<h2>{{ writer }}'s top favorites hobbies are:</h2>
-<ol>
-    {% for hobby in hobbies %}
-    <li> {{ hobby }} </li>
-    {% endfor %}
-</ol>
+    <h2>{{ writer }}'s top favorites hobbies are:</h2>
+    <ol>
+        {% for hobby in hobbies %}
+            <li> {{ hobby }} </li>
+        {% endfor %}
+    </ol>
 {% endblock %}
 
 </body>

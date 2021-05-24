@@ -18,19 +18,16 @@ def main():
 @app.route('/ex9')
 @app.route('/assignment9', methods=['GET','POST'])
 def assignment9():
-    # session['isLogged'] = False
+    session['isLogged']=False
     current_method = request.method
-    # if current_method in session:
-    #     user_name, last_name, email = session['user_name'], session['lastname'], session['email']
-    # else:
     if current_method == 'GET':
         if 'username' in request.args:
             username = request.args['username']
             lastname = request.args['lastname']
             email = request.args['email']
 
-            if 'username' is '' and 'lastname' is '' and 'email' is '':
-                return render_template('assignment9.html', users=users)
+            if username is '' and lastname is '' and email is '':
+                return render_template('assignment9.html', inSearch=True, users=users)
             filtered_users = []
             for user in users:
                 if (username is '' or user['username'] == username) and (lastname is '' or user['lastname'] == lastname) and (email is '' or user['email'] == email):
@@ -38,17 +35,10 @@ def assignment9():
             if len(filtered_users) == 0:
                 return render_template('assignment9.html', isUser=False, inSearch=True)
             else:
-                return render_template('assignment9.html',isUser=True, inSearch=True, users=filtered_users)
+                return render_template('assignment9.html', isUser=True, inSearch=True, user=filtered_users)
         else:
             return render_template('assignment9.html')
 
-    # if request.args['username'] in users:
-    #     return render_template('assignment9.html', isUser=True, inSearch=True,
-    #                            username=request.args['username'], user=users[request.args['username']])
-    # else:
-    #     return render_template('assignment9.html', isUser=False, inSearch=True)
-
-    # elif current_method == 'POST':
     else:
         if request.form['username'] in users:
             session['username'] = request.form['username']
@@ -88,7 +78,8 @@ def assignment8():
                            name=name,
                            writer=writer,
                            hobbies=hobby,
-                           songs=song)
+                           songs=song,
+                           )
 
 
 @app.route('/preferences')

@@ -4,21 +4,18 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/CV.css') }}">
     <title>assignment9</title>
-
 </head>
 <body>
 {% block header %}
-    {% if session['isLogged'] %}
-        <h1>Hello {{ session['username'] }}!! Glad you came back! :)</h1>
-    {% else %}
-        <h1>Hello stranger</h1>
+    {% if session['isLogged'] == False %}
+        <h3> Hello Stranger! welcome to my website :)</h3>
     {% endif %}
-    <hr>
+    {% include('header9.html') %}
 {% endblock %}
 
 
 {% block search %}
-    <h3>To search, please enter the username</h3>
+    <h2>To search, please enter the username</h2>
     <form name="search" method=GET" action="assignment9">
         <input name="username" type="text" id="username" placeholder="enter username...">
         <input name="lastname" type="text" id="lastname" placeholder="enter lastname...">
@@ -27,20 +24,22 @@
     </form>
     {% if inSearch==True %}
         {% if isUser==True %}
-            <h4>The user you looked for is : <br>
-                {{ user['username'] }} {{ user['lastname'] }} , his email is : {{ user['email']}} </h4>
+            <h4>The user you looked for is :</h4> <br>
+            <span>
+                    {{user[0].username}} {{ user[0].lastname }} , his email is : {{ user[0].email}}
+                </span>
         {% elif isUser==False %}
             <h4>There is no such as user in the system</h4>
         {% else %}
             <h2>users list:</h2>
             <ol>
-            {% for user in users %}
+                {% for user in users %}
                     <li>
-                        User: {{ user['username'] }} {{ user['lastname'] }},
-                            email: {{ user['email'] }}
+                        User: {{ user.username }} {{ user.lastname }}, email: {{ user.email }}
                     </li>
-                </ol>
-            {% endfor %}
+
+                {% endfor %}
+            </ol>
         {% endif %}
     {% endif %}
 {% endblock %}
@@ -58,7 +57,7 @@
         </form>
     {% else %}
         <h3>Hello {{ session['username'] }}!</h3>
-        <h5>To log out press the button:</h5>
+        <h4>To log out press the button:</h4>
         <form name="logout" action="logout">
             <input type="submit" value="Logout">
         </form>
