@@ -4,10 +4,10 @@ app = Flask(__name__)
 app.secret_key = "WebRulls"
 
 # global variables:
-
 users = [{'username': 'ofri', 'lastname': 'hazan', 'email': "ofrihaz@post.bgu.ac.il"},
          {'username': 'peleg', 'lastname': "chub", 'email': "pelegc@post.bgu.ac.il"},
-         {'username': 'anat', 'lastname': "vitelson", 'email': "anatvi@post.bgu.ac.il"}]
+         {'username': 'anat', 'lastname': "vitelson", 'email': "anatvi@post.bgu.ac.il"},
+         {'username': 'gal', 'lastname': "cohen", 'email': "galc@post.bgu.ac.il"}]
 
 
 @app.route('/')
@@ -28,14 +28,14 @@ def assignment9():
 
             if username is '' and lastname is '' and email is '':
                 return render_template('assignment9.html', inSearch=True, users=users)
-            filtered_users = []
+            searchedUsers = []
             for user in users:
                 if (username is '' or user['username'] == username) and (lastname is '' or user['lastname'] == lastname) and (email is '' or user['email'] == email):
-                    filtered_users.append(user)
-            if len(filtered_users) == 0:
+                    searchedUsers.append(user)
+            if len(searchedUsers) == 0:
                 return render_template('assignment9.html', isUser=False, inSearch=True)
             else:
-                return render_template('assignment9.html', isUser=True, inSearch=True, user=filtered_users)
+                return render_template('assignment9.html', isUser=True, inSearch=True, user=searchedUsers)
         else:
             return render_template('assignment9.html')
 
