@@ -18,7 +18,6 @@ def main():
 @app.route('/ex9')
 @app.route('/assignment9', methods=['GET','POST'])
 def assignment9():
-    session['isLogged']=False
     current_method = request.method
     if current_method == 'GET':
         if 'username' in request.args:
