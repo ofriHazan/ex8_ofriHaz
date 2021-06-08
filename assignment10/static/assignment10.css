@@ -1,0 +1,12 @@
+.h3{
+  color:palevioletred;
+}
+
+/* When moving the mouse over the close button */
+.btn:hover {
+  color: lightpink;
+}
+.message{
+  background-color: hotpink;
+  color: lightgray;
+}

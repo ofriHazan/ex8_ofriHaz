@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatibale" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>users ex10</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../../static/css/CV.css') }}">
+</head>
+<body>
+
+    {% for message in get_flashed_messages() %}
+        <h4 style="background-color: #FFF0F5; color:grey" >{{ message }}</h4>
+    {% endfor %}
+
+<h3 style="color: palevioletred">Insertion Form:</h3>
+<h4>insert the user information bellow</h4>
+<form name="insert" method="POST" action="/insert_user">
+    <input name="username" type="text" placeholder="enter username...">
+    <input name="lastname" type="text" placeholder="enter lastname...">
+    <input name="email" type="email" placeholder="enter email...">
+    <input class="btn" type="submit">
+</form>
+
+<hr>
+<h3 style="color: palevioletred">Update Form:</h3>
+<h4>choose the id of the user you want to update and then fill in the new data bellow</h4>
+<form name="update" method="POST" action="/update_user">
+    <input name="id" type="text" placeholder="enter the id of the user...">
+     <br> <br>
+    <input name="username" type="text" placeholder="enter username...">
+    <input name="lastname" type="text" placeholder="enter lastname...">
+    <input name="email" type="email" placeholder="enter email...">
+    <input class="btn" type="submit">
+</form>
+
+<hr>
+<h3 style="color: palevioletred">Deletion Form:</h3>
+<h4>enter the id of the user you want to delete from the users list</h4>
+<form name="delete" method="POST" action="/delete_user">
+    <input name="id" type="text" placeholder="enter the id of the user...">
+    <input class="btn" type="submit">
+</form>
+
+<hr>
+<h3 style="color: palevioletred">List of users:</h3>
+<ol>
+    {% for user in users %}
+        <li>
+            [id: {{ user.id }}] user name: {{ user.username }} {{ user.lastname }} , email: {{ user.email }}
+        </li>
+    {% endfor %}
+</ol>
+
+</body>
+</html>

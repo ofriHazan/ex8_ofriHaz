@@ -256,12 +256,6 @@ p {
 
 
 
-.row{
-
-}
-
-
-
 @media only screen and (max-width: 1000px) {
     /* For mobile phones: */
     [class*="col-"] {

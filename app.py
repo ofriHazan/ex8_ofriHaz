@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, session, request, redirect
+from flask import Flask, render_template, url_for, session, request, redirect, Blueprint
 
 app = Flask(__name__)
 app.secret_key = "WebRulls"
@@ -13,6 +13,12 @@ users = [{'username': 'ofri', 'lastname': 'hazan', 'email': "ofrihaz@post.bgu.ac
 @app.route('/')
 def main():
     return render_template('CV.html')
+
+
+# ---------assignment10------------#
+from assignment10.assignment10 import assignment10
+app.register_blueprint(assignment10)
+
 
 #-------assignment9----
 @app.route('/ex9')
