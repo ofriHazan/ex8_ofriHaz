@@ -1,4 +1,5 @@
-from flask import Flask, render_template, url_for, session, request, redirect, Blueprint
+from flask import Flask, render_template, url_for, session, request, redirect, Blueprint, jsonify
+import mysql, mysql.connector
 
 app = Flask(__name__)
 app.secret_key = "WebRulls"
@@ -10,10 +11,61 @@ users = [{'username': 'ofri', 'lastname': 'hazan', 'email': "ofrihaz@post.bgu.ac
          {'username': 'gal', 'lastname': "cohen", 'email': "galc@post.bgu.ac.il"}]
 
 
+
+def interact_db(query, query_type: str):
+    return_value = False
+    connection = mysql.connector.connect(host='localhost',
+                                         user='root',
+                                         password='root',
+                                         database='web_course')
+    cursor = connection.cursor(named_tuple=True)
+    cursor.execute(query)
+
+    if query_type == 'commit':
+        connection.commit()
+        return_value = True
+    if query_type == 'fetch':
+        query_result = cursor.fetchall()
+        return_value = query_result
+
+    connection.close()
+    cursor.close()
+    return return_value
+
+
 @app.route('/')
 def main():
     return render_template('CV.html')
 
+
+# ---------assignment11------------#
+@app.route('/assignment11/users')
+def assignment11():
+    current_method = request.method
+    if current_method == 'GET':
+        query = "SELECT * FROM web_course.users_table;"
+        query_result = interact_db(query=query, query_type='fetch')
+        response = {}
+        if len(query_result) != 0:
+            response = query_result
+        response = jsonify(users=response)
+        return response
+    else:
+        return jsonify(users)
+
+
+@app.route('/assignment11/users/selected/id/', defaults={'SOME_USER_ID':1})
+@app.route('/assignment11/users/selected/id/<int:SOME_USER_ID>')
+
+def get_user(SOME_USER_ID=None):
+    if SOME_USER_ID:
+        query = "SELECT * FROM web_course.users_table WHERE id='%s'" % SOME_USER_ID
+        query_result = interact_db(query, query_type='fetch')
+        if len(query_result) != 0:
+            return jsonify(users=query_result)
+    return jsonify({'success': False,
+                    'error': 'Request failed'
+                    })
 
 # ---------assignment10------------#
 from assignment10.assignment10 import assignment10
